@@ -52,3 +52,48 @@ Debates about "the best framework in the world" are USELESS!
 Django Developer - $117,673/year - ziprecruiter.com
 
 LEARNING DJANGO IS A GOOD INVESTMENT FOR YOUR FUTURE
+
+## How to Web Works?
+
+**Django** is a **framework** for building web applications
+
+![Screenshot](./images/front-end_and_back-end.png?text=Front-end+and+Back-end)
+
+moshbuy.com
+
+URL - Uniform Resource Locator
+
+`page` `image` `video` `pdf`
+
+![Screenshot](./images/request.png?text=Request)
+
+
+![Screenshot](./images/response.png?text=Response)
+
+HTTP - Hypertext Transfer Protocol
+
+![Screenshot](./images/html.png?text=HTML)
+
+HTML - Hypertext Markup Language
+
+![Screenshot](./images/data.png?text=DATA)
+
+CLIENT
+
+- REACT
+- ANGULAR
+- VUE
+
+SERVER
+
+- DJANGO
+- ASP.NET CORE
+- EXPRESS
+
+![Screenshot](./images/endpoints.png?text=endpoints)
+
+API - Application Programming Interface
+
+![Screenshot](./images/structure.png?text=structure)
+
+WE'RE READY TO SET UP OUR DEVELOPMENT
