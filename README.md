@@ -97,3 +97,15 @@ API - Application Programming Interface
 ![Screenshot](./images/structure.png?text=structure)
 
 WE'RE READY TO SET UP OUR DEVELOPMENT
+
+## Setting Up the Development Environment
+
+```bash
+    python3 --version
+```
+
+python 3.9.5
+
+```bash
+    pip3 install virtualenv
+```
