@@ -140,3 +140,11 @@ Open this folder in PyCharm Professional
 ```
 
 Click [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+## Creating Your First App
+
+![Screenshot](./images/apps.png?text=Apps)
+
+```bash
+    python manage.py startapp playground
+```
