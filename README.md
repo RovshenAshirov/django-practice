@@ -109,3 +109,34 @@ python 3.9.5
 ```bash
     pip3 install virtualenv
 ```
+
+## Creating Your First Django Project
+
+```bash
+    cd PycharmProjects
+    mkdir storefront
+    cd storefront
+    virtualenv venv
+    source venv/bin/activate
+    pip install Django==4.2.10
+```
+
+![Screenshot](./images/django-admin.png?text=Django-Admin)
+
+```bash
+    ls
+```
+
+Open this folder in PyCharm Professional
+
+```bash
+    django-admin
+    django-admin startproject storefront
+    django-admin startproject storefront .
+    django-admin runserver # error
+    python manage.py
+    python manage.py runserver    
+    python manage.py runserver 8000
+```
+
+Click [http://127.0.0.1:8000](http://127.0.0.1:8000)
