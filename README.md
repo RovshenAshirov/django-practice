@@ -153,7 +153,7 @@ python manage.py startapp playground
 
 ## Introduction to Data Modeling
 
-![Screenshot](./images/product-collection.png?text=Apps)
+![Screenshot](./images/product-collection.png?text=model)
 
 ### Relationships
 
@@ -164,3 +164,17 @@ python manage.py startapp playground
 Idenify the other essential entities we need in an e-commerce application
 
 Hint: 5 Entities
+
+## Building an E-commerce Data Model
+
+![Screenshot](./images/created_at.png?text=created_at)
+
+![Screenshot](./images/association-class.png?text=association-class)
+
+![Screenshot](./images/many-to-many.png?text=many-to-many)
+
+What about the user that owns this cart?
+
+![Screenshot](./images/e-commerce.png?text=e-commerce)
+
+![Screenshot](./images/tag.png?text=tag)
