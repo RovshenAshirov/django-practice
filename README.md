@@ -178,3 +178,35 @@ What about the user that owns this cart?
 ![Screenshot](./images/e-commerce.png?text=e-commerce)
 
 ![Screenshot](./images/tag.png?text=tag)
+
+## Organizing Models in Apps
+
+### STORE
+
+- Product
+- Collection
+- Cart
+- CartItem
+- Order
+- OrderItem
+- Customer
+
+But there's a problem...
+
+Monolith
+
+Do one thing and do it well.
+
+![Screenshot](./images/models-apps.png?text=models-apps)
+
+![Screenshot](./images/model-app.png?text=model-app)
+
+Takeaway
+
+MINIMAL COUPLING
+HIGH COHESION (FOCUS)
+
+```bash
+python manage.py startapp store
+python manage.py startapp tags
+```
