@@ -101,42 +101,42 @@ WE'RE READY TO SET UP OUR DEVELOPMENT
 ## Setting Up the Development Environment
 
 ```bash
-    python3 --version
+python3 --version
 ```
 
 python 3.9.5
 
 ```bash
-    pip3 install virtualenv
+pip3 install virtualenv
 ```
 
 ## Creating Your First Django Project
 
 ```bash
-    cd PycharmProjects
-    mkdir storefront
-    cd storefront
-    virtualenv venv
-    source venv/bin/activate
-    pip install Django==4.2.10
+cd PycharmProjects
+mkdir storefront
+cd storefront
+virtualenv venv
+source venv/bin/activate
+pip install Django==4.2.10
 ```
 
 ![Screenshot](./images/django-admin.png?text=Django-Admin)
 
 ```bash
-    ls
+ls
 ```
 
 Open this folder in PyCharm Professional
 
 ```bash
-    django-admin
-    django-admin startproject storefront
-    django-admin startproject storefront .
-    django-admin runserver # error
-    python manage.py
-    python manage.py runserver    
-    python manage.py runserver 8000
+django-admin
+django-admin startproject storefront
+django-admin startproject storefront .
+django-admin runserver # error
+python manage.py
+python manage.py runserver    
+python manage.py runserver 8000
 ```
 
 Click [http://127.0.0.1:8000](http://127.0.0.1:8000)
@@ -146,5 +146,21 @@ Click [http://127.0.0.1:8000](http://127.0.0.1:8000)
 ![Screenshot](./images/apps.png?text=Apps)
 
 ```bash
-    python manage.py startapp playground
+python manage.py startapp playground
 ```
+
+# Building a Data Model
+
+## Introduction to Data Modeling
+
+![Screenshot](./images/product-collection.png?text=Apps)
+
+### Relationships
+
+- One-to-one (1, 1)
+- One-to-many (1, *)
+- Many-to-many (*, *)
+
+Idenify the other essential entities we need in an e-commerce application
+
+Hint: 5 Entities
