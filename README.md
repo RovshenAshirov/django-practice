@@ -229,3 +229,47 @@ CIRCULAR DEPENDENCY
 - MariaDB
 - Oracle
 - MS SQL Server
+
+## Creating Migrations
+
+```bash
+python manage.py makemigrations
+```
+
+```bash
+(.venv) rovshen@rovshen:~/PyCharmProjects/django-practice$ python manage.py makemigrations
+Was product.price renamed to product.unit_price (a DecimalField)? [y/N] y
+Migrations for 'store':
+  store/migrations/0002_rename_price_product_unit_price.py
+    - Rename field price on product to unit_price
+(.venv) rovshen@rovshen:~/PyCharmProjects/django-practice$ 
+```
+
+```bash
+(.venv) rovshen@rovshen:~/PyCharmProjects/django-practice$ python manage.py makemigrations
+No changes detected
+(.venv) rovshen@rovshen:~/PyCharmProjects/django-practice$ 
+```
+
+```bash
+(.venv) rovshen@rovshen:~/PyCharmProjects/django-practice$ python manage.py makemigrations
+It is impossible to add a non-nullable field 'slug' to product without specifying a default. This is because the database needs something to populate existing rows.
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit and manually define a default value in models.py.
+Select an option: 2
+(.venv) rovshen@rovshen:~/PyCharmProjects/django-practice$ python manage.py makemigrations
+It is impossible to add a non-nullable field 'slug' to product without specifying a default. This is because the database needs something to populate existing rows.
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit and manually define a default value in models.py.
+Select an option: 1
+Please enter the default value as valid Python.
+The datetime and django.utils.timezone modules are available, so it is possible to provide e.g. timezone.now as a value.
+Type 'exit' to exit this prompt
+>>> '-'
+Migrations for 'store':
+  store/migrations/0003_product_slug.py
+    - Add field slug to product
+(.venv) rovshen@rovshen:~/PyCharmProjects/django-practice$ 
+```
