@@ -216,3 +216,16 @@ python manage.py startapp tags
 CIRCULAR DEPENDENCY
 
 ![Screenshot](./images/circular-relationship.png?text=circular-relationship)
+
+# Setting Up the Database
+
+## Supported Database Engines
+
+### Database engines
+
+- SQLite
+- PostgreSQL
+- MySQL
+- MariaDB
+- Oracle
+- MS SQL Server
