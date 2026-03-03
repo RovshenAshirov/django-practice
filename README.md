@@ -210,3 +210,9 @@ HIGH COHESION (FOCUS)
 python manage.py startapp store
 python manage.py startapp tags
 ```
+
+## Resolving Circular Relationships
+
+CIRCULAR DEPENDENCY
+
+![Screenshot](./images/circular-relationship.png?text=circular-relationship)

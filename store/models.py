@@ -4,11 +4,12 @@ from django.db import models
 class Promotion(models.Model):
     description = models.CharField(max_length=255)
     discount = models.FloatField()
-    # default - product_set. change related_name - products
+    # product_set
 
 
 class Collection(models.Model):
     title = models.CharField(max_length=255)
+    featured_product = models.ForeignKey('Product', on_delete=models.SET_NULL, null=True, related_name='+')
 
 
 class Product(models.Model):
@@ -20,7 +21,7 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     collection = models.ForeignKey('Collection', on_delete=models.CASCADE)
-    promotions = models.ManyToManyField(Promotion, related_name='products')
+    promotions = models.ManyToManyField(Promotion)
 
 
 class Customer(models.Model):
