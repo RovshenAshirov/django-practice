@@ -273,3 +273,37 @@ Migrations for 'store':
     - Add field slug to product
 (.venv) rovshen@rovshen:~/PyCharmProjects/django-practice$ 
 ```
+
+## Running Migrations
+
+```bash
+python manage.py migrate
+```
+
+```bash
+(.venv) rovshen@rovshen:~/PyCharmProjects/django-practice$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, likes, store, tags
+Running migrations:
+  No migrations to apply.
+(.venv) rovshen@rovshen:~/PyCharmProjects/django-practice$ 
+```
+
+```bash
+(.venv) rovshen@rovshen:~/PyCharmProjects/django-practice$ python manage.py sqlmigrate store 0003
+BEGIN;
+--
+-- Add field slug to product
+--
+CREATE TABLE "new__store_product" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "slug" varchar(50) NOT NULL, "title" varchar(255) NOT NULL, "description" text NOT NULL, "inventory" integer NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "collection_id" bigint NOT NULL REFERENCES "store_collection" ("id") DEFERRABLE INITIALLY DEFERRED, "unit_price" decimal NOT NULL);
+INSERT INTO "new__store_product" ("id", "title", "description", "inventory", "created_at", "updated_at", "collection_id", "unit_price", "slug") SELECT "id", "title", "description", "inventory", "created_at", "updated_at", "collection_id", "unit_price", '-' FROM "store_product";
+DROP TABLE "store_product";
+ALTER TABLE "new__store_product" RENAME TO "store_product";
+CREATE INDEX "store_product_slug_6de8ee4b" ON "store_product" ("slug");
+CREATE INDEX "store_product_collection_id_2914d2ba" ON "store_product" ("collection_id");
+COMMIT;
+(.venv) rovshen@rovshen:~/PyCharmProjects/django-practice$ 
+```
+
+sequel - sql
+

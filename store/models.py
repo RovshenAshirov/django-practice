@@ -73,6 +73,7 @@ class Address(models.Model):
     # on_delete=models.SET_NULL
     # on_delete=models.SET_DEFAULT
     # on_delete=models.PROTECT
+    zip_code = models.CharField(max_length=6)
 
 
 class Cart(models.Model):
