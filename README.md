@@ -378,3 +378,36 @@ python manage.py makemigrations store --empty
 ## Generating Dummy Data
 
 [Mockaroo.com](https://www.mockaroo.com/)
+
+# Django ORM
+
+## Django ORM
+
+![Screenshot](./images/orm.png?text=orm)
+
+```py
+sql = 'SELECT * FROM product'
+result = execute(sql)
+for row in result:
+    product = Product()
+    product.title = row['title']
+    product.price = row['price']
+```
+
+ORM - Object-relational Mappers
+
+~~`sql = 'SELECT * FROM product'`~~  
+```py
+product = Product.objects.all()
+```
+
+ORMs
+ - Reduce complexity in code
+ - Make the code more understandable
+ - Help us get more done is less time
+
+Programming Wunderkind.  
+ORMs ARE SLOW.  
+The <b>best</b> code is <b>no</b> code.  
+A good software engineer <b>delivers working</b> software <b>in time</b>.  
+Premature optimization is the root of all evils. ( - Donald Knuth).  
