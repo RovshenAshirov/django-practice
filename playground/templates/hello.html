@@ -12,7 +12,7 @@
     {% endif %}
     <ul>
         {% for result in results %}
-        <li>{{ result.full_name }}</li>
+        <li>{{ result.first_name }} - {{ result.orders_count }}</li>
         {% endfor %}
     </ul>
 </body>
