@@ -12,8 +12,8 @@
     {% endif %}
     <ul>
         {% for product in products %}
-{#        <li>{{ product }}</li>#}
-        <li>{{ product.title }}</li>
+        <li>{{ product.title }} ${{ product.unit_price }}</li> {# n + 1 problem #}
+        <li>{{ product.title }} ${{ product.description }}</li> {# n + 1 problem #}
         {% endfor %}
     </ul>
 </body>

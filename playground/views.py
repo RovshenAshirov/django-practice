@@ -1,14 +1,10 @@
 from django.shortcuts import render
 
-from store.models import Product, OrderItem
+from store.models import Product
 
 
 def say_hello(request):
-    queryset = Product.objects.values('id', 'title', 'collection__title')
-    queryset = Product.objects.values_list('id', 'title', 'collection__title')
-
-    queryset = Product.objects.filter(
-        id__in=OrderItem.objects.values('product_id').distinct()
-    ).order_by('title')
+    queryset = Product.objects.only('id', 'title')
+    queryset = Product.objects.defer('description')
 
     return render(request, 'hello.html', {'name': 'Rovshen', 'products': list(queryset)})
