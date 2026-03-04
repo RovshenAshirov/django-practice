@@ -1,22 +1,19 @@
-from django.db.models import F, ExpressionWrapper, DecimalField
+from django.contrib.contenttypes.models import ContentType
 from django.shortcuts import render
 
 from store.models import Product
+from tags.models import TagItem
 
 
 def say_hello(request):
-    # Expression
-    # - Value
-    # - F
-    # - Func
-    # - Aggregate
-    # - ExpressionWrapper
-    discounted_price = ExpressionWrapper(F('unit_price') * 0.8, output_field=DecimalField())
-    queryset = Product.objects.annotate(
-        discounted_price=discounted_price
+    content_type = ContentType.objects.get_for_model(Product)
+
+    queryset = TagItem.objects.select_related('tag').filter(
+        content_type=content_type,
+        object_id=1
     )
 
     return render(request, 'hello.html', {
         'name': 'Rovshen',
-        'results': list(queryset)
+        'tags': list(queryset)
     })
