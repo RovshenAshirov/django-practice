@@ -42,13 +42,6 @@ class Customer(models.Model):
     phone = models.CharField(max_length=255)
     birth_date = models.DateField(null=True)
 
-    class Meta:
-        db_table = 'store_customers'
-        indexes = [
-            models.Index(fields=['last_name', 'first_name']),
-        ]
-        # https://docs.djangoproject.com/en/4.2/ref/models/options/
-
 
 class Order(models.Model):
     PAYMENT_STATUS_PENDING = 'P'

@@ -307,3 +307,14 @@ COMMIT;
 
 sequel - sql
 
+## Reverting Migrations
+
+```bash
+(.venv) rovshen@rovshen:~/PyCharmProjects/django-practice$ python manage.py migrate store 0004
+Operations to perform:
+  Target specific migration: 0004_address_zip_code, from store
+Running migrations:
+  Rendering model states... DONE
+  Unapplying store.0005_customer_store_custo_last_na_e6a359_idx_and_more... OK
+(.venv) rovshen@rovshen:~/PyCharmProjects/django-practice$ 
+```
