@@ -13,6 +13,7 @@ class Collection(models.Model):
 
 
 class Product(models.Model):
+    # https://docs.djangoproject.com/en/4.2/ref/models/fields/
     # sku = models.CharField(max_length=10, primary_key=True)
     title = models.CharField(max_length=255)  # varchar(255)
     slug = models.SlugField() # default='-', null=True
@@ -40,6 +41,13 @@ class Customer(models.Model):
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=255)
     birth_date = models.DateField(null=True)
+
+    class Meta:
+        db_table = 'store_customers'
+        indexes = [
+            models.Index(fields=['last_name', 'first_name']),
+        ]
+        # https://docs.djangoproject.com/en/4.2/ref/models/options/
 
 
 class Order(models.Model):
