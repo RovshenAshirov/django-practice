@@ -1,18 +1,23 @@
-from django.db.models import Count, Min
+from django.db.models import Value, F
 from django.shortcuts import render
 
-from store.models import Product
+from store.models import Customer
 
 
 def say_hello(request):
-    # Count, Min, Max, Avg, Sum
-    result = Product.objects.aggregate(Count('id'))
-    result = Product.objects.filter(collection_id=3).aggregate(
-        count=Count('id'),
-        min_price=Min('unit_price'),
+    # Expression
+    # - Value
+    # - F
+    # - Func
+    # - Aggregate
+
+    # queryset = Customer.objects.annotate(is_new=True) # Error
+    queryset = Customer.objects.annotate(
+        is_new=Value(True),
+        new_id=F('id') + 1
     )
 
     return render(request, 'hello.html', {
         'name': 'Rovshen',
-        'result': result
+        'result': list(queryset)
     })
