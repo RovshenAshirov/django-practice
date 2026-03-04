@@ -318,3 +318,7 @@ Running migrations:
   Unapplying store.0005_customer_store_custo_last_na_e6a359_idx_and_more... OK
 (.venv) rovshen@rovshen:~/PyCharmProjects/django-practice$ 
 ```
+
+## Installing PostgreSQL
+
+[Download PostgreSQL](https://www.postgresql.org/download/)
