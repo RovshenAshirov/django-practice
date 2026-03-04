@@ -368,3 +368,9 @@ CAUSES
 ```bash
 python manage.py migrate
 ```
+
+## Running Custom SQL
+
+```bash
+python manage.py makemigrations store --empty
+```
