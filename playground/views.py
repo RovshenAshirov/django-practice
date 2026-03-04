@@ -1,23 +1,19 @@
-from django.db.models import Value, F
+from django.db.models import F, Func, Value
+from django.db.models.functions import Concat
 from django.shortcuts import render
 
 from store.models import Customer
 
 
 def say_hello(request):
-    # Expression
-    # - Value
-    # - F
-    # - Func
-    # - Aggregate
-
-    # queryset = Customer.objects.annotate(is_new=True) # Error
+    # https://docs.djangoproject.com/en/4.2/ref/models/database-functions/
     queryset = Customer.objects.annotate(
-        is_new=Value(True),
-        new_id=F('id') + 1
+        # CONCAT
+        # full_name=Func(F("first_name"), Value(" "), F("last_name"), function="CONCAT"),
+        full_name=Concat("first_name", Value(" "), "last_name")
     )
 
     return render(request, 'hello.html', {
         'name': 'Rovshen',
-        'result': list(queryset)
+        'results': list(queryset)
     })

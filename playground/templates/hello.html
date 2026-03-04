@@ -10,7 +10,10 @@
     {% else %}
     <h1>Hello World</h1>
     {% endif %}
-
-    {{ result }}
+    <ul>
+        {% for result in results %}
+        <li>{{ result.full_name }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
