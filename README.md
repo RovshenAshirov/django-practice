@@ -410,4 +410,8 @@ Programming Wunderkind.
 ORMs ARE SLOW.  
 The <b>best</b> code is <b>no</b> code.  
 A good software engineer <b>delivers working</b> software <b>in time</b>.  
-Premature optimization is the root of all evils. ( - Donald Knuth).  
+Premature optimization is the root of all evils. ( - Donald Knuth). 
+
+## Resetting the Database
+
+Delete database. After create again and migrate seed.sql data
