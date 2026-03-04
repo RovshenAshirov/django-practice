@@ -9,12 +9,11 @@ class Promotion(models.Model):
 
 class Collection(models.Model):
     title = models.CharField(max_length=255)
-    # featured_product = models.ForeignKey('Product', on_delete=models.SET_NULL, null=True, related_name='+')
+    featured_product = models.ForeignKey('Product', on_delete=models.SET_NULL, null=True, related_name='+')
 
 
 class Product(models.Model):
     # https://docs.djangoproject.com/en/4.2/ref/models/fields/
-    # sku = models.CharField(max_length=10, primary_key=True)
     title = models.CharField(max_length=255)  # varchar(255)
     slug = models.SlugField() # default='-', null=True
     description = models.TextField()
@@ -41,6 +40,9 @@ class Customer(models.Model):
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=255)
     birth_date = models.DateField(null=True)
+    membership = models.CharField(
+        max_length=1, choices=MEMBERSHIP_CHOICES, default=MEMBERSHIP_BRONZE
+    )
 
 
 class Order(models.Model):
@@ -71,9 +73,6 @@ class Address(models.Model):
     street = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    # on_delete=models.SET_NULL
-    # on_delete=models.SET_DEFAULT
-    # on_delete=models.PROTECT
     zip_code = models.CharField(max_length=6)
 
 

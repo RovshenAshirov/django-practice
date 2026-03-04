@@ -374,3 +374,7 @@ python manage.py migrate
 ```bash
 python manage.py makemigrations store --empty
 ```
+
+## Generating Dummy Data
+
+[Mockaroo.com](https://www.mockaroo.com/)
