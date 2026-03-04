@@ -1,19 +1,21 @@
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
 
 from store.models import Product
 
 
 def say_hello(request):
-    queryset = Product.objects.all()
-    # queryset = Product.objects.count()
+    # book = get_airplane()
+    try:
+        product = Product.objects.get(id=1) # or pk
+        # product = Product.objects.get(pk=0) # Error DoesNotExist
+    except ObjectDoesNotExist:
+        pass
 
-    # for product in queryset:
-    #     print(product)
+    # None
+    product = Product.objects.filter(pk=0).first()
 
-    # list(queryset)
-
-    # queryset[0:5] # lazy
-
-    # queryset.filter().filter().order_by()
+    # True / False
+    exists = Product.objects.filter(pk=0).exists()
 
     return render(request, 'hello.html', {'name': 'Rovshen'})
