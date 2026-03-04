@@ -333,3 +333,38 @@ Running migrations:
 - DataGrip
 - TablePlus
 - Beekeeper Studio
+
+## Using PostgreSQL in Django
+
+```bash
+pip install psycopg2-binary
+pip freeze > requirements.txt
+```
+
+Took me more than an hour...
+
+stackoverflow.com  
+forum.codewithmosh.com
+
+```bash
+(.venv) rovshen@rovshen:~/Porifolio/django-practice$ sudo -u postgres psql
+[sudo] password for rovshen: 
+psql (18.1 (Ubuntu 18.1-1.pgdg24.04+2))
+Type "help" for help.
+
+postgres=# CREATE DATABASE storefront;
+CREATE DATABASE
+postgres-# \q
+(.venv) rovshen@rovshen:~/Porifolio/django-practice$ 
+```
+
+ERROR
+ - psql command not found
+
+CAUSES
+ - PostgreSQL not installed properly
+ - PostgreSQL is not in the PATH
+
+```bash
+python manage.py migrate
+```
