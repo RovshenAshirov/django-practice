@@ -322,3 +322,14 @@ Running migrations:
 ## Installing PostgreSQL
 
 [Download PostgreSQL](https://www.postgresql.org/download/)
+
+## Connecting to PostgreSQL
+
+### PostgreSQL Clients
+
+- psql (CLI (Terminal) client)
+- pgAdmin (Free)
+- DBeaver
+- DataGrip
+- TablePlus
+- Beekeeper Studio
