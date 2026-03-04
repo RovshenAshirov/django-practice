@@ -1,13 +1,18 @@
 from django.shortcuts import render
 
 from store.models import Product
-from tags.models import TagItem
 
 
 def say_hello(request):
-    queryset = TagItem.objects.get_tags_for(Product, 1)
+    # QuerySet lazy
+    # lazy loading
+    # It doesn’t send a new SQL query every time.
+    queryset = Product.objects.all()
+    queryset[0]
+    list(queryset)
+    list(queryset)
+    queryset[0]
 
     return render(request, 'hello.html', {
-        'name': 'Rovshen',
-        'tags': list(queryset)
+        'name': 'Rovshen'
     })
