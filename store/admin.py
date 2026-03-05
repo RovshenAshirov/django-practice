@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.utils.html import format_html
 from django.utils.http import urlencode
 
-from store.models import Collection, Product, Customer, Order
+from store.models import Collection, Product, Customer, Order, OrderItem
 
 
 class InventoryFilter(admin.SimpleListFilter):
@@ -39,6 +39,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ['collection', 'updated_at', InventoryFilter]
     list_per_page = 10
     list_select_related = ['collection']
+    search_fields = ['title']
 
     def collection_title(self, obj):
         return obj.collection.title
@@ -86,6 +87,17 @@ class CollectionAdmin(admin.ModelAdmin):
         )
 
 
+class OrderItemInline(admin.StackedInline):
+# class OrderItemInline(admin.TabularInline):
+    autocomplete_fields = ['product']
+    model = OrderItem
+    extra = 0
+    min_num = 1
+    max_num = 10
+
+
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['id', 'placed_at', 'customer']
+    autocomplete_fields = ['customer']
+    inlines = [OrderItemInline]
