@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.db.models import QuerySet, Count
+from django.http import HttpRequest
 
 from store.models import Collection, Product, Customer, Order
 
@@ -28,7 +30,18 @@ class CustomerAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 
-admin.site.register(Collection)
+@admin.register(Collection)
+class CollectionAdmin(admin.ModelAdmin):
+    list_display = ['title', 'products_count']
+
+    @admin.display(ordering='products_count')
+    def products_count(self, obj):
+        return obj.products_count
+
+    def get_queryset(self, request: HttpRequest) -> QuerySet:
+        return super().get_queryset(request).annotate(
+            products_count=Count('product')
+        )
 
 
 @admin.register(Order)
