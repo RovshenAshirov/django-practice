@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django.contrib.contenttypes.admin import GenericTabularInline
 from django.core.checks import messages
 from django.db.models import QuerySet, Count
 from django.http import HttpRequest
@@ -8,7 +7,6 @@ from django.utils.html import format_html
 from django.utils.http import urlencode
 
 from store.models import Collection, Product, Customer, Order, OrderItem
-from tags.models import TagItem
 
 
 class InventoryFilter(admin.SimpleListFilter):
@@ -26,11 +24,6 @@ class InventoryFilter(admin.SimpleListFilter):
         return queryset
 
 
-class TagInline(GenericTabularInline):
-    autocomplete_fields = ['tag']
-    model = TagItem
-
-
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     # fields = ['title', 'slug']
@@ -41,7 +34,6 @@ class ProductAdmin(admin.ModelAdmin):
         'slug': ['title']
     }
     actions = ['clear_inventory']
-    inlines = [TagInline]
     list_display = ['title', 'unit_price', 'inventory_status', 'collection_title']
     list_editable = ['unit_price']
     list_filter = ['collection', 'updated_at', InventoryFilter]
@@ -96,7 +88,7 @@ class CollectionAdmin(admin.ModelAdmin):
 
 
 class OrderItemInline(admin.StackedInline):
-# class OrderItemInline(admin.TabularInline):
+    # class OrderItemInline(admin.TabularInline):
     autocomplete_fields = ['product']
     model = OrderItem
     extra = 0
