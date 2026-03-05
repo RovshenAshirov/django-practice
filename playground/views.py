@@ -1,13 +1,23 @@
+from django.db import transaction
 from django.shortcuts import render
 
-from store.models import Collection
+from store.models import Order, OrderItem
 
 
+# @transaction.atomic()
 def say_hello(request):
-    collection = Collection(pk=11)
-    collection.delete()
+    # ALTER SEQUENCE store_order_id_seq RESTART WITH 1000;
+    # ALTER SEQUENCE store_orderitem_id_seq RESTART WITH 1000;
+    # ...
 
-    Collection.objects.filter(pk=11).delete()
+    with transaction.atomic():
+        order = Order.objects.create(customer_id=1)
+        item = OrderItem.objects.create(
+            order=order,
+            product_id=1,
+            quantity=1,
+            unit_price=10,
+        )
 
     return render(request, 'hello.html', {
         'name': 'Rovshen'
