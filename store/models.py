@@ -11,6 +11,12 @@ class Collection(models.Model):
     title = models.CharField(max_length=255)
     featured_product = models.ForeignKey('Product', on_delete=models.SET_NULL, null=True, related_name='+')
 
+    class Meta:
+        ordering = ['title']
+
+    def __str__(self) -> str:
+        return self.title
+
 
 class Product(models.Model):
     # https://docs.djangoproject.com/en/4.2/ref/models/fields/
@@ -22,6 +28,12 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     collection = models.ForeignKey('Collection', on_delete=models.CASCADE)
     promotions = models.ManyToManyField(Promotion)
+
+    class Meta:
+        ordering = ['title']
+
+    def __str__(self) -> str:
+        return self.title
 
 
 class Customer(models.Model):

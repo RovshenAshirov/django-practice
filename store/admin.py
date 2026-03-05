@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from store.models import Collection, Product
+
+admin.site.register(Collection)
+admin.site.register(Product)

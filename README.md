@@ -1,5 +1,7 @@
 # The Ultimate Django Series: Part 1
 
+required: Python 3.12 version
+
 ## What is Django?
 
 Free and open-source **framework** for building **web apps** with **Python**
@@ -427,3 +429,7 @@ python manage.py createsuperuser
 ```bash
 python manage.py changepassword admin
 ```
+
+## Registering Models
+
+Select -> Action - Delete selected collections -> Go
