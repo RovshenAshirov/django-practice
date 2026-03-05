@@ -415,3 +415,15 @@ Premature optimization is the root of all evils. ( - Donald Knuth).
 ## Resetting the Database
 
 Delete database. After create again and migrate seed.sql data
+
+# The Admin Site
+
+## Setting Up the Admin Site
+
+```bash
+python manage.py createsuperuser
+```
+
+```bash
+python manage.py changepassword admin
+```
