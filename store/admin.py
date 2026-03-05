@@ -1,13 +1,17 @@
 from django.contrib import admin
 
-from store.models import Collection, Product, Customer
+from store.models import Collection, Product, Customer, Order
 
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['title', 'unit_price', 'inventory_status']
+    list_display = ['title', 'unit_price', 'inventory_status', 'collection_title']
     list_editable = ['unit_price']
     list_per_page = 10
+    list_select_related = ['collection']
+
+    def collection_title(self, obj):
+        return obj.collection.title
 
     @admin.display(ordering='inventory')
     def inventory_status(self, obj):
@@ -25,3 +29,8 @@ class CustomerAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Collection)
+
+
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ['id', 'placed_at', 'customer']
