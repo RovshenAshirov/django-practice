@@ -72,3 +72,40 @@ JSON - JavaScript Object Notation
     "interests": []
 }
 ```
+
+## HTTP Methods
+
+ - GET
+ - POST
+ - PUT
+ - PATCH
+ - DELETE
+
+***
+
+Creating a Product  
+POST /products/  
+```json
+{
+    "title": "...",
+    "price": 10
+}
+```
+
+***
+
+Updating a Product  
+PUT     /products/1/  
+PATCH   /products/1/  
+```json
+{
+    "title": "...",
+    "price": 10
+}
+```
+
+***
+Deleting a Product  
+DELETE /products/1/  
+```json
+```
