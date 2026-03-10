@@ -123,3 +123,9 @@ pip freeze > requirements.txt
 Django         - HttpRequest -> HttpResponse  
 REST Framework - Response    -> Response
 </pre>
+
+## Creating Serializers
+
+REST Framework - JSONRenderer - render(dict)
+
+Serializer - Converts a model instance to a dictionary
