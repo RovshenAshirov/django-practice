@@ -116,3 +116,10 @@ DELETE /products/1/
 pip install djangorestframework
 pip freeze > requirements.txt
 ```
+
+## Creating API Views
+
+<pre>
+Django         - HttpRequest -> HttpResponse  
+REST Framework - Response    -> Response
+</pre>
