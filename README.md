@@ -109,3 +109,10 @@ Deleting a Product
 DELETE /products/1/  
 ```json
 ```
+
+## Installing Django REST Framework
+
+```bash
+pip install djangorestframework
+pip freeze > requirements.txt
+```
