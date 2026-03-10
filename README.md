@@ -35,3 +35,16 @@ RESTFULL?
  - Easy to change
 
 Resources - Representations - Http Methods
+
+## Resources
+
+ - Product
+ - Collection
+ - Cart
+
+URL - Uniform Resource Locator
+
+http://rovshenbuy.com/products/
+http://rovshenbuy.com/products/1/
+http://rovshenbuy.com/products/1/reviews/
+http://rovshenbuy.com/products/1/reviews/1/
