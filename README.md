@@ -48,3 +48,27 @@ http://rovshenbuy.com/products/
 http://rovshenbuy.com/products/1/
 http://rovshenbuy.com/products/1/reviews/
 http://rovshenbuy.com/products/1/reviews/1/
+
+## Resource Representations
+
+ - HTML
+ - XML
+ - JSON
+
+```py
+class Product(models.Model):
+    title = models.CharField()
+    price = models.DecimalField()
+```
+
+JSON - JavaScript Object Notation
+
+```json
+{
+    "name": "Rovshen",
+    "age": 25,
+    "is_online": true,
+    "employer": {},
+    "interests": []
+}
+```
