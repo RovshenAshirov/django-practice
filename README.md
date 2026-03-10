@@ -129,3 +129,10 @@ REST Framework - Response    -> Response
 REST Framework - JSONRenderer - render(dict)
 
 Serializer - Converts a model instance to a dictionary
+
+## Creating Custom Serializer Fields
+
+API Model != Data Model
+
+Data Model -> Implementation (models.Model)  
+API Model -> Interface (serializers.Serializer)  
