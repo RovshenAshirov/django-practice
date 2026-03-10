@@ -14,15 +14,13 @@ def product_list(request):
         serializer = ProductSerializer(queryset, many=True, context={'request': request})
         return Response(serializer.data)
     elif request.method == 'POST':
-        # send in body: {"title": "a", "unit_price": "1", "collection": "1"}
-        # send in body: {"title": "a", "slug": "a", "unit_price": "1", "collection": "1", "inventory": 1}
         serializer = ProductSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-@api_view(['GET', 'PUT', 'PATCH'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
 
@@ -30,20 +28,20 @@ def product_detail(request, pk):
         serializer = ProductSerializer(product)
         return Response(serializer.data)
     elif request.method == 'PUT':
-        # pk = 2
-        # send in body: {
-        #     "title": "+Island Oasis - Raspberry",
-        #     "description": "maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque",
-        #     "slug": "-",
-        #     "inventory": 40,
-        #     "unit_price": 84.64,
-        #     "price_with_tax": 93.10400000000001,
-        #     "collection": 3
-        # }
         serializer = ProductSerializer(instance=product, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
+    elif request.method == 'DELETE':
+        # https://www.webfx.com/web-development/glossary/http-status-codes/
+        # try delete pk=1
+        # if product.orderitem_set.count() > 0:
+        if product.order_items.count() > 0:
+            return Response({
+                'error': 'Product cannot be deleted because it is associated with an order item.'
+            }, status.HTTP_405_METHOD_NOT_ALLOWED)
+        product.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 @api_view()

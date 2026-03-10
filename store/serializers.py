@@ -20,16 +20,3 @@ class ProductSerializer(serializers.ModelSerializer):
 
     def calculate_tax(self, obj: Product) -> Decimal:
         return obj.unit_price * Decimal(1.1)
-
-    # def create(self, validated_data: dict) -> Product:
-    #     product = Product.objects.create(**validated_data)
-    #     product.other = 1
-    #     product.save()
-    #     return product
-    #     # return super().create(validated_data)
-    #
-    # def update(self, instance: Product, validated_data: dict) -> Product:
-    #     instance.unit_price = validated_data.get('unit_price')
-    #     instance.save()
-    #     return instance
-    #     # return super().update(instance, validated_data)
