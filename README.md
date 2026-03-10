@@ -136,3 +136,10 @@ API Model != Data Model
 
 Data Model -> Implementation (models.Model)  
 API Model -> Interface (serializers.Serializer)  
+
+## Serializing Relationships
+
+ - Primary key
+ - String
+ - Nested Object
+ - Hyperlink
