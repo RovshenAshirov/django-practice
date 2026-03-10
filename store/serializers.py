@@ -16,13 +16,20 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['id', 'title', 'unit_price', 'price_with_tax', 'collection']
+        fields = ['id', 'title', 'description', 'slug', 'inventory', 'unit_price', 'price_with_tax', 'collection']
 
     def calculate_tax(self, obj: Product) -> Decimal:
         return obj.unit_price * Decimal(1.1)
 
-    # def validate(self, attrs):
-    #     if attrs['password'] != attrs['password_confirm']:
-    #         raise serializers.ValidationError("Passwords don't match")
+    # def create(self, validated_data: dict) -> Product:
+    #     product = Product.objects.create(**validated_data)
+    #     product.other = 1
+    #     product.save()
+    #     return product
+    #     # return super().create(validated_data)
     #
-    #     return attrs
+    # def update(self, instance: Product, validated_data: dict) -> Product:
+    #     instance.unit_price = validated_data.get('unit_price')
+    #     instance.save()
+    #     return instance
+    #     # return super().update(instance, validated_data)
