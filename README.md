@@ -143,3 +143,24 @@ API Model -> Interface (serializers.Serializer)
  - String
  - Nested Object
  - Hyperlink
+
+# Designing and Implementing a Shopping Cart API
+
+## Designing the API
+
+### Operations
+
+ - Create a cart
+ - Add items to a cart
+ - Update the quantity of items
+ - Remove items from a cart
+ - Get a cart with its items
+
+| Operation        | METHOD | url                  | request       | response |
+|------------------|--------|----------------------|---------------|----------|
+| Creating a Cart  | POST   | /carts/              | {}            | cart     |
+| Getting a Cart   | GET    | /carts/:id           | {}            | cart     |
+| Deleting a Cart  | DELETE | /carts/:id           | {}            | {}       |
+| Adding an Item   | POST   | /carts/:id/items/    | {prodId, qty} | item     |
+| Updating an Item | PATCH  | /carts/:id/items/:id | {qty}         | {qty}    |
+| Deleting an Item | DELETE | /carts/:id/items/:id | {}            | {}       |
