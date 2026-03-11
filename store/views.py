@@ -78,3 +78,5 @@ def collection_detail(request, pk):
             }, status.HTTP_405_METHOD_NOT_ALLOWED)
         collection.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+# https://www.django-rest-framework.org/api-guide/generic-views/#mixins
