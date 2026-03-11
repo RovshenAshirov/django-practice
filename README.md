@@ -164,3 +164,9 @@ API Model -> Interface (serializers.Serializer)
 | Adding an Item   | POST   | /carts/:id/items/    | {prodId, qty} | item     |
 | Updating an Item | PATCH  | /carts/:id/items/:id | {qty}         | {qty}    |
 | Deleting an Item | DELETE | /carts/:id/items/:id | {}            | {}       |
+
+## Revisiting the Data Model
+
+GUID: Globally Unique Identifier
+
+Premature optimization is the root of all evils. ( - Donald Knuth)
