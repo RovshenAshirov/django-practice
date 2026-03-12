@@ -207,3 +207,10 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
 ```
+
+## Groups and Permissions
+
+Create User - John Smith (Staff User)
+Create Customer - John Smith
+Create Auth Group - Customer Service (customer, order, order item)
+Relate John Smith <-> Customer Service
