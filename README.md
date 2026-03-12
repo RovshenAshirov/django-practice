@@ -194,3 +194,16 @@ sales     -  Customer
 hr        -  Employee
 training  -  Student
 </pre>
+
+## Extending the User Model
+
+```sql
+DROP DATABASE storefront2;
+CREATE DATABASE storefront2;
+```
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+```
