@@ -40,6 +40,7 @@ class CollectionViewSet(ModelViewSet):
     serializer_class = CollectionSerializer
 
     def destroy(self, request, *args, **kwargs):
+        # user = request.user
         if Product.objects.filter(collection_id=kwargs['pk']).exists():
             return Response({
                 'error': 'Collection cannot be deleted because it includes one or more products.'
@@ -63,7 +64,6 @@ class CartViewSet(CreateModelMixin, RetrieveModelMixin, DestroyModelMixin, Gener
 
 
 class CartItemViewSet(ModelViewSet):
-    # http_method_names = ['get', 'post', 'patch', 'DELETE']
     http_method_names = ['get', 'post', 'patch', 'delete']
 
     def get_queryset(self):

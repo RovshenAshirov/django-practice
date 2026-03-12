@@ -170,3 +170,9 @@ API Model -> Interface (serializers.Serializer)
 GUID: Globally Unique Identifier
 
 Premature optimization is the root of all evils. ( - Donald Knuth)
+
+# Django Authentication System
+
+## Django Authentication System
+
+tables begin with auth - auth_user
