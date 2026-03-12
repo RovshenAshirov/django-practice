@@ -235,3 +235,19 @@ TOKEN is temporary key we're going to give to the client to access protected res
 ![Screenshot](./images/request-with-token.png?text=request-with-token)
 ![Screenshot](./images/auth-error-response.png?text=auth-error-response)
 ![Screenshot](./images/response-by-token.png?text=response-by-token)
+
+## Adding the Authentication Endpoints
+
+### Auth System
+Models, tables, etc
+
+### Djoser
+Views for registration, login, etc
+
+---
+
+https://djoser.readthedocs.io/en/latest/authentication_backends.html  
+### Auth Engines
+
+ - Token-based Authentication
+ - JSON Web Token Authentication
