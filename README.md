@@ -44,10 +44,10 @@ Resources - Representations - Http Methods
 
 URL - Uniform Resource Locator
 
-http://rovshenbuy.com/products/
-http://rovshenbuy.com/products/1/
-http://rovshenbuy.com/products/1/reviews/
-http://rovshenbuy.com/products/1/reviews/1/
+http://rovshenbuy.com/products/  
+http://rovshenbuy.com/products/1/  
+http://rovshenbuy.com/products/1/reviews/  
+http://rovshenbuy.com/products/1/reviews/1/  
 
 ## Resource Representations
 
@@ -210,7 +210,28 @@ python manage.py createsuperuser
 
 ## Groups and Permissions
 
-Create User - John Smith (Staff User)
-Create Customer - John Smith
-Create Auth Group - Customer Service (customer, order, order item)
-Relate John Smith <-> Customer Service
+Create User - John Smith (Staff User)  
+Create Customer - John Smith  
+Create Auth Group - Customer Service (customer, order, order item)  
+Relate John Smith <-> Customer Service  
+
+# Securing APIs
+
+## Token-based Authentication
+
+A de facto standart for authenticating users with RESTful APIs
+
+![Screenshot](./images/request.png?text=request)
+![Screenshot](./images/response.png?text=response)
+
+---
+
+![Screenshot](./images/auth-request.png?text=auth-request)
+![Screenshot](./images/auth-error-response.png?text=auth-error-response)
+![Screenshot](./images/auth-token-response.png?text=auth-token-response)
+
+TOKEN is temporary key we're going to give to the client to access protected resources
+
+![Screenshot](./images/request-with-token.png?text=request-with-token)
+![Screenshot](./images/auth-error-response.png?text=auth-error-response)
+![Screenshot](./images/response-by-token.png?text=response-by-token)
