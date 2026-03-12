@@ -76,12 +76,16 @@ class CartItemCreateSerializer(serializers.ModelSerializer):
 
         try:
             cart_item = CartItem.objects.get(cart_id=cart_id, product=product)
-            # Updating an existing item
             cart_item.quantity += quantity
             cart_item.save()
             self.instance = cart_item
         except CartItem.DoesNotExist:
-            # Create a new item
             self.instance = CartItem.objects.create(cart_id=cart_id, product=product, quantity=quantity)
 
         return self.instance
+
+
+class CartItemUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CartItem
+        fields = ['quantity']
