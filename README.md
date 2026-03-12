@@ -251,3 +251,7 @@ https://djoser.readthedocs.io/en/latest/authentication_backends.html
 
  - Token-based Authentication
  - JSON Web Token Authentication
+
+## Registering Users
+
+Each component should have a <b>single responsibility</b>
