@@ -40,7 +40,6 @@ class CollectionViewSet(ModelViewSet):
     serializer_class = CollectionSerializer
 
     def destroy(self, request, *args, **kwargs):
-        # user = request.user
         if Product.objects.filter(collection_id=kwargs['pk']).exists():
             return Response({
                 'error': 'Collection cannot be deleted because it includes one or more products.'

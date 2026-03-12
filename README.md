@@ -176,3 +176,21 @@ Premature optimization is the root of all evils. ( - Donald Knuth)
 ## Django Authentication System
 
 tables begin with auth - auth_user
+
+## Customizing the User Model
+
+### Extend User
+
+`User <- AppUser`  
+For storing attributes related to authentication
+
+### Create Profile
+
+`Profile -> User`  
+For storing non-auth related attributes
+
+<pre>
+sales     -  Customer
+hr        -  Employee
+training  -  Student
+</pre>
