@@ -298,3 +298,9 @@ Signature Verification
 ![Screenshot](./images/response-access-token.png?text=response-access-token)
 
 http://127.0.0.1:8000/auth/jwt/refresh/  
+
+## Getting the Current User
+
+http://127.0.0.1:8000/auth/users/me/  
+
+install modheader to your Chrome browser
