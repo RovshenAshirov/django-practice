@@ -289,3 +289,12 @@ Decoded Payload
 
 Signature Verification  
 `a-string-secret-at-least-256-bits-long`
+
+## Refreshing Tokens
+
+![Screenshot](./images/rt-request-token.png?text=rt-request-token)
+![Screenshot](./images/unauthorized.png?text=unauthorized)
+![Screenshot](./images/rt-request-refresh-token.png?text=rt-request-refresh-token)
+![Screenshot](./images/response-access-token.png?text=response-access-token)
+
+http://127.0.0.1:8000/auth/jwt/refresh/  
