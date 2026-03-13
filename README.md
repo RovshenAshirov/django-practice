@@ -261,3 +261,31 @@ Each component should have a <b>single responsibility</b>
 http://127.0.0.1:8000/auth/jwt/create/  
 
 JavaScript - Local Storage - Token
+
+## Inspecting a JSON Web Token
+
+https://www.jwt.io/
+
+`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNDAwNjE5LCJpYXQiOjE3NzM0MDAzMTksImp0aSI6IjE4MDRkZjVjMGQyOTRkM2FhOTE1YTI0ODFhYzg3ZjFiIiwidXNlcl9pZCI6IjMifQ.kOoLu7vtnkLQAPMaAi-utnQz6R7G38FIIM3HM3GHrow`
+
+Decoded Header
+```json
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+```
+
+Decoded Payload
+```json
+{
+  "token_type": "access",
+  "exp": 1773400619,
+  "iat": 1773400319,
+  "jti": "1804df5c0d294d3aa915a2481ac87f1b",
+  "user_id": "3"
+}
+```
+
+Signature Verification  
+`a-string-secret-at-least-256-bits-long`
