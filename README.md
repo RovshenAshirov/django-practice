@@ -255,3 +255,9 @@ https://djoser.readthedocs.io/en/latest/authentication_backends.html
 ## Registering Users
 
 Each component should have a <b>single responsibility</b>
+
+## Logging In
+
+http://127.0.0.1:8000/auth/jwt/create/  
+
+JavaScript - Local Storage - Token
