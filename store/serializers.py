@@ -95,3 +95,4 @@ class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
         fields = ['id', 'user', 'phone', 'birth_date', 'membership']
+        read_only_fields = ['user']
