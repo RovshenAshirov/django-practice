@@ -14,7 +14,7 @@ from store.pagination import DefaultPagination
 from store.permissions import IsAdminOrReadOnly, ViewCustomerHistoryPermissions
 from store.serializers import (
     ProductSerializer, CollectionSerializer, ReviewSerializer, CartSerializer, CartItemSerializer,
-    CartItemCreateSerializer, CartItemUpdateSerializer, CustomerSerializer, OrderSerializer
+    CartItemCreateSerializer, CartItemUpdateSerializer, CustomerSerializer, OrderSerializer, OrderCreateSerializer
 )
 
 
@@ -106,7 +106,6 @@ class CustomerViewSet(ModelViewSet):
 
 
 class OrderViewSet(ModelViewSet):
-    serializer_class = OrderSerializer
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
@@ -115,3 +114,9 @@ class OrderViewSet(ModelViewSet):
 
         customer, created = Customer.objects.only('id').get_or_create(user=self.request.user)
         return Order.objects.filter(customer_id=customer)
+
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return OrderCreateSerializer
+
+        return OrderSerializer
