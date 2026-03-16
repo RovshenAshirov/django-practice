@@ -4,14 +4,16 @@ from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, DestroyModelMixin
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework.permissions import (
+    IsAuthenticated, IsAdminUser, DjangoModelPermissions, DjangoModelPermissionsOrAnonReadOnly
+)
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 
 from store.filters import ProductFilterSet
 from store.models import Product, Collection, OrderItem, Review, Cart, CartItem, Customer
 from store.pagination import DefaultPagination
-from store.permissions import IsAdminOrReadOnly
+from store.permissions import IsAdminOrReadOnly, FullDjangoModelPermissions
 from store.serializers import (
     ProductSerializer, CollectionSerializer, ReviewSerializer, CartSerializer, CartItemSerializer,
     CartItemCreateSerializer, CartItemUpdateSerializer, CustomerSerializer
@@ -87,6 +89,9 @@ class CartItemViewSet(ModelViewSet):
 class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
+    # permission_classes = (DjangoModelPermissions,)
+    # permission_classes = (FullDjangoModelPermissions,)
+    # permission_classes = (DjangoModelPermissionsOrAnonReadOnly,)
     permission_classes = (IsAdminUser,)
 
     @action(detail=False, methods=['GET', 'PUT'], permission_classes=(IsAuthenticated,))
