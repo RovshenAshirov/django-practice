@@ -320,3 +320,20 @@ install modheader to your Chrome browser
 ## Applying Permissions
 
 Command Query Separation
+
+## Signals
+
+ - pre_save
+ - post_save
+ - pre_delete
+ - post_delete
+
+### Core (App)
+
+ - Create User
+ - <del>Create Customer</del>
+
+### Store (App)
+
+ - Listen to User..post_save
+ - Create Customer
