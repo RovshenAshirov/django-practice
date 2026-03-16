@@ -14,7 +14,8 @@ from store.pagination import DefaultPagination
 from store.permissions import IsAdminOrReadOnly, ViewCustomerHistoryPermissions
 from store.serializers import (
     ProductSerializer, CollectionSerializer, ReviewSerializer, CartSerializer, CartItemSerializer,
-    CartItemCreateSerializer, CartItemUpdateSerializer, CustomerSerializer, OrderSerializer, OrderCreateSerializer
+    CartItemCreateSerializer, CartItemUpdateSerializer, CustomerSerializer, OrderSerializer, OrderCreateSerializer,
+    OrderUpdateSerializer
 )
 
 
@@ -118,6 +119,8 @@ class OrderViewSet(ModelViewSet):
     def get_serializer_class(self):
         if self.request.method == 'POST':
             return OrderCreateSerializer
+        elif self.request.method == 'PATCH':
+            return OrderUpdateSerializer
 
         return OrderSerializer
 
