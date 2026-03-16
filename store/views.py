@@ -107,7 +107,7 @@ class CustomerViewSet(ModelViewSet):
 
 
 class OrderViewSet(ModelViewSet):
-    http_method_names = ['get', 'patch', 'delete', 'head', 'options']
+    http_method_names = ['get', 'post', 'patch', 'delete', 'head', 'options']
 
     def get_queryset(self):
         if self.request.user.is_staff:
