@@ -106,7 +106,7 @@ class CustomerViewSet(ModelViewSet):
 
 
 class OrderViewSet(ModelViewSet):
-    permission_classes = (IsAuthenticated,)
+    http_method_names = ['get', 'patch', 'delete', 'head', 'options']
 
     def get_queryset(self):
         if self.request.user.is_staff:
@@ -120,6 +120,12 @@ class OrderViewSet(ModelViewSet):
             return OrderCreateSerializer
 
         return OrderSerializer
+
+    def get_permissions(self):
+        if self.request.method in ['PUT', 'PATCH', 'DELETE']:
+            return (IsAdminUser(),)
+
+        return (IsAuthenticated(),)
 
     def create(self, request, *args, **kwargs):
         serializer = OrderCreateSerializer(data=request.data, context={'request': request})
