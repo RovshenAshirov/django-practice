@@ -32,5 +32,4 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    # http://127.0.0.1:8000/media/dog.png
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

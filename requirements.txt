@@ -13,6 +13,7 @@ djoser==2.3.3
 drf-nested-routers==0.95.0
 idna==3.11
 oauthlib==3.3.1
+pillow==12.1.1
 psycopg2-binary==2.9.11
 pycparser==3.0
 PyJWT==2.11.0
