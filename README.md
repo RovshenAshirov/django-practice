@@ -316,3 +316,7 @@ install modheader to your Chrome browser
 | Getting a Order  | GET    | /orders/:id          | {}       | order    |
 | Updating a Order | PATCH  | /orders/:id          |          |          |
 | Deleting a Order | DELETE | /orders/:id          |          |          |
+
+## Applying Permissions
+
+Command Query Separation
