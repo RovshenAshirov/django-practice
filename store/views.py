@@ -3,14 +3,15 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter, OrderingFilter
-from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, DestroyModelMixin, UpdateModelMixin
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, DestroyModelMixin
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 
 from store.filters import ProductFilterSet
 from store.models import Product, Collection, OrderItem, Review, Cart, CartItem, Customer
 from store.pagination import DefaultPagination
+from store.permissions import IsAdminOrReadOnly
 from store.serializers import (
     ProductSerializer, CollectionSerializer, ReviewSerializer, CartSerializer, CartItemSerializer,
     CartItemCreateSerializer, CartItemUpdateSerializer, CustomerSerializer
@@ -23,6 +24,7 @@ class ProductViewSet(ModelViewSet):
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_class = ProductFilterSet
     pagination_class = DefaultPagination
+    permission_classes = (IsAdminOrReadOnly,)
     search_fields = ['title', 'description', 'collection__title']
     ordering_fields = ['unit_price', 'updated_at']
 
@@ -40,6 +42,7 @@ class ProductViewSet(ModelViewSet):
 class CollectionViewSet(ModelViewSet):
     queryset = Collection.objects.annotate(products_count=Count('products'))
     serializer_class = CollectionSerializer
+    permission_classes = (IsAdminOrReadOnly,)
 
     def destroy(self, request, *args, **kwargs):
         if Product.objects.filter(collection_id=kwargs['pk']).exists():
@@ -81,18 +84,12 @@ class CartItemViewSet(ModelViewSet):
         return {'cart_id': self.kwargs['cart_pk']}
 
 
-class CustomerViewSet(CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, GenericViewSet):
+class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdminUser,)
 
-    def get_permissions(self):
-        if self.request.method == 'GET':
-            return (AllowAny(),)
-        return (IsAuthenticated(),)
-
-    # @action(detail=False, methods=['GET', 'PUT'], permission_classes=(IsAuthenticated,))
-    @action(detail=False, methods=['GET', 'PUT'])
+    @action(detail=False, methods=['GET', 'PUT'], permission_classes=(IsAuthenticated,))
     def me(self, request):
         customer, created = Customer.objects.get_or_create(user=request.user)
         if request.method == 'GET':
