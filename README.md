@@ -304,3 +304,15 @@ http://127.0.0.1:8000/auth/jwt/refresh/
 http://127.0.0.1:8000/auth/users/me/  
 
 install modheader to your Chrome browser
+
+# Designing and Building the Orders API
+
+## Designing the Orders API
+
+| Operation        | METHOD | url                  | request  | response |
+|------------------|--------|----------------------|----------|----------|
+| Creating a Order | POST   | /orders/             | {cartId} | order    |
+| Getting Orders   | GET    | /orders/             | {}       | order[]  |
+| Getting a Order  | GET    | /orders/:id          | {}       | order    |
+| Updating a Order | PATCH  | /orders/:id          |          |          |
+| Deleting a Order | DELETE | /orders/:id          |          |          |
