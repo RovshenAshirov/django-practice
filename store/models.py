@@ -1,7 +1,7 @@
 import uuid
 
 from django.contrib import admin
-from django.core.validators import MinValueValidator, FileExtensionValidator
+from django.core.validators import MinValueValidator
 from django.db import models
 
 from core.models import User
@@ -44,7 +44,6 @@ class Product(models.Model):
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField(upload_to='store/images', validators=[validate_file_size])
-    # image = models.FileField(upload_to='store/images', validators=[FileExtensionValidator(['jpg', 'png'])])
 
 
 class Customer(models.Model):

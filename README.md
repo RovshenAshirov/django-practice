@@ -14,3 +14,16 @@ python manage.py migrate
 python manage.py seed_db
 python manage.py createsuperuser
 ```
+
+# Uploading Files
+
+## Setting Up the Client App
+
+required: Node 17 version
+
+```bash
+node --version
+cd client_app
+npm install
+npm start
+```
