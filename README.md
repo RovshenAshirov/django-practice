@@ -27,3 +27,10 @@ cd client_app
 npm install
 npm start
 ```
+
+## Enabling CORS
+
+CORS - Cross-origin Resource Sharing
+
+http://domain1.com  
+http://domain2.com
